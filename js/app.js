@@ -14,6 +14,11 @@
             slider.slidePage(new HomeView(service).render().$el);
         });
 
+        router.addRoute('login', function() {
+            console.log('empty');
+            slider.slidePage(new LoginView().render().$el);
+        });
+
         router.addRoute('employees/:id', function(id) {
             console.log('details');
             service.findById(parseInt(id)).done(function(employee) {
