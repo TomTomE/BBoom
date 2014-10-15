@@ -2,30 +2,39 @@
 (function () {
 
     /* ---------------------------------- Local Variables ---------------------------------- */
+    LoginView.prototype.template = Handlebars.compile($("#login-tpl").html());
+    MainView.prototype.template = Handlebars.compile($("#main-tpl").html());
 //    HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
 //    EmployeeListView.prototype.template = Handlebars.compile($("#employee-list-tpl").html());
 //    EmployeeView.prototype.template = Handlebars.compile($("#employee-tpl").html());
 
-//    var service = new EmployeeService();
+    var service = new UserService();
     var slider = new PageSlider($('body'));
+
     service.initialize().done(function () {
         router.addRoute('', function() {
-            console.log('empty');
+            console.log('login');
             slider.slidePage(new LoginView().render().$el);
         });
 
         router.addRoute('login', function() {
-            console.log('empty');
+            console.log('login');
             slider.slidePage(new LoginView().render().$el);
         });
 
-        router.addRoute('employees/:id', function(id) {
-            console.log('details');
-            service.findById(parseInt(id)).done(function(employee) {
-                slider.slidePage(new EmployeeView(employee).render().$el);
-            });
+        router.addRoute('main', function() {
+            console.log('main');
+            slider.slidePage(new MainView().render().$el);
         });
 
+//
+//        router.addRoute('employees/:id', function(id) {
+//            console.log('details');
+//            service.findById(parseInt(id)).done(function(employee) {
+//                slider.slidePage(new EmployeeView(employee).render().$el);
+//            });
+//        });
+//
         router.start();
     });
 

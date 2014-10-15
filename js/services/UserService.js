@@ -1,4 +1,4 @@
-var EmployeeService = function() {
+var UserService = function() {
 
     var url;
 

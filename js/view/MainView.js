@@ -1,4 +1,4 @@
-var LoginView = function () {
+var MainView = function () {
 
     this.initialize = function() {
         this.$el = $('<div/>');
