@@ -6,12 +6,12 @@
 //    EmployeeListView.prototype.template = Handlebars.compile($("#employee-list-tpl").html());
 //    EmployeeView.prototype.template = Handlebars.compile($("#employee-tpl").html());
 
-    var service = new EmployeeService();
+//    var service = new EmployeeService();
     var slider = new PageSlider($('body'));
     service.initialize().done(function () {
         router.addRoute('', function() {
             console.log('empty');
-            slider.slidePage(new HomeView(service).render().$el);
+            slider.slidePage(new LoginView().render().$el);
         });
 
         router.addRoute('login', function() {

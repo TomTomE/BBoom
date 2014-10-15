@@ -1,17 +1,21 @@
 var LoginView = function () {
 
     this.initialize = function() {
-        //TODO initialize 꼭 다시 해야하는지 확인.
-
+        this.$el = $('<div/>');
         this.render();
     };
 
     this.render = function() {
-        //TODO $el 확인하기.
         this.$el.html(this.template());
-        $('.content', this.$el).html();
+        $('.content', this.$el).html(employeeListView.$el);
         return this;
     };
 
+    this.findByName = function() {
+        service.findByName($('.search-key').val()).done(function(employees) {
+            employeeListView.setEmployees(employees);
+        });
+    };
+
     this.initialize();
-}
+};
